@@ -118,7 +118,7 @@
     <!-- Copyright -->
   
   </footer>
-  <!-- Footer -->
+  <!-- Footer --> 
 
     </div>
 </body>

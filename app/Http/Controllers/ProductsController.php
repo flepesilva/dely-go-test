@@ -36,10 +36,18 @@ class ProductsController extends Controller
     //Almacenar en la base de dato nuevos productos
     public function store(Request $request)
     {
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/images/', $name);
+            
+        }
+
         $options = [
             'title' => $request->title,
             'description' => $request->description,
-            'price' => $request->price
+            'price' => $request->price,
+            'image_url' => $name,
         ];
         if(Product::create($options)){
             return redirect('/');
@@ -72,6 +80,13 @@ class ProductsController extends Controller
         $product->title = $request->title;
         $product->price = $request->price;
         $product->description = $request->description;
+
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $name = $time().$file->getClientOriginalName();
+            $file->move(public_path().'/images/', $name);
+        }
+        $product->image = $request->image;
 
         if($product->save()){
             return redirect('/');

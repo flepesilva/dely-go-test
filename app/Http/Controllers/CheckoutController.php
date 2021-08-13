@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\CompraAceptada;
+use App\Mail\CompraAceptadaVendedor;
 
 
 use Freshwork\Transbank\WebpayNormal;
@@ -83,7 +84,7 @@ class CheckoutController extends Controller
 			Mail::to('test.laravel.delygo@gmail.com')->send(new CompraAceptada($carrito));
 
 			// MAIL PARA EL VENDEDOR
-			//Mail::to('')
+			Mail::to('test.laravel.delygo@gmail.com')->send(new CompraAceptadaVendedor($carrito));
 
 			return view('resultTransaction.aprobada', ['shopping_cart_webpay' => $carrito ]);
 

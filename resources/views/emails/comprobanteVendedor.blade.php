@@ -15,7 +15,7 @@
     <div class="container">
 
         <h3>Hola  {{$carrito->nombreComprador}}:</h3>
-        <p>Su compra a sido aceptada por nuestro sistema y a la brevedad tomaremos contacto con usted, debe tomar en cuenta que este correo es automatico.</p>
+        <p>Ha sido aceptada una compra, a continuacion se mostrara la informacion del vendedor y las compras realizadas, ¡Exito!.</p>
         <br>
         <h3 style="text-align: center;">Carrito de compras</h3>
         <br>

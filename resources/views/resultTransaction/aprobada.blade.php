@@ -15,7 +15,7 @@
         <div class="container">
           <div class="card-body">
             <div class="row">
-              <div class="col-12 col-md-3 payments">                
+              <div class="col">                
                 <table class="table table-bordered">
         
                   <tbody>
@@ -45,14 +45,26 @@
                 </table>
 
               </div>
-              <div class="col-12 col-md-6">
-
+              <div class="col">
+                <h4>Carrito de compras</h4>
                 @foreach ($shopping_cart_webpay->products as $product)
-                  <div class="">
-                    <h4>{{$product->title}}</h4>
-                  </div>
-                @endforeach
+                  <div class="row">
+                    <div class="col-8">
+                      <h6>{{$product->title}} </h4>
+                    </div>
+                    <div class="col-4">
+                      ${{$product->price}}
+                    </div>
+                    <hr>
+                    <div class="col-8">
+                      <strong>TOTAL: </strong>
+                    </div>
+                    <div class="col-4">
+                      <strong>${{$shopping_cart_webpay->total()}}</strong>
+                    </div>
 
+                @endforeach
+                    
               </div>
             </div>
           </div>
